@@ -42,7 +42,6 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.logging.Logger;
 
-import com.griefdefender.provider.permissionsex.PermissionsExProvider;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.LocaleUtils;
@@ -511,11 +510,6 @@ public class GriefDefenderPlugin {
         Plugin permissionPlugin = Bukkit.getPluginManager().getPlugin("LuckPerms");
         if (permissionPlugin != null) {
             this.permissionProvider = new LuckPermsProvider();
-        } else {
-            permissionPlugin = Bukkit.getPluginManager().getPlugin("PermissionsEx");
-            if (permissionPlugin != null) {
-                this.permissionProvider = PermissionsExProvider.initBukkit(permissionPlugin);
-            }
         }
         instance = this;
         timingManager = TimingManager.of(GDBootstrap.getInstance());
